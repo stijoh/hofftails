@@ -5,7 +5,7 @@ class CocktailsController < ApplicationController
     @search = params['search_form']
       if @search.present?
         @term = @search['search_term']
-        @cocktails = Cocktail.global_search(@term)
+        @cocktails = Cocktail.search(@term)
       end
   end
 
@@ -34,7 +34,6 @@ class CocktailsController < ApplicationController
       # removes bug if the update button is selected without any ingredients
       return render :show
     end
-
     @cocktail.update(cocktail_params)
     redirect_to cocktail_path(@cocktail)
   end

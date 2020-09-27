@@ -19,9 +19,7 @@
         <% end %>
         </ul>
       <br>
-      <% if current_user == @cocktail.user || current_user == @cocktail.user.admin? %>
-      <%= render 'form' %>
-      <% end %>
+      <%= render('form') if current_user && (current_user == @cocktail.user || current_user.admin?) %>
 
     </div>
   </div>

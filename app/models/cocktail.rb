@@ -20,4 +20,12 @@ class Cocktail < ApplicationRecord
   using: {
     tsearch: { prefix: true }
   }
+
+  def self.search(query)
+    if query.present?
+      global_search(query)
+    else
+      all
+    end
+  end
 end
