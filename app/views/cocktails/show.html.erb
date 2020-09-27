@@ -19,7 +19,7 @@
         <% end %>
         </ul>
       <br>
-      <% if current_user == @cocktail.user || current_user.admin? %>
+      <% if current_user == @cocktail.user || @cocktail.user.admin? %>
       <%= render 'form' %>
       <% end %>
 
