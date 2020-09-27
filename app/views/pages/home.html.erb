@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div class="row align-items-center marg">
+    <div class="col-lg-6">
+      <%= image_tag "logo_big.png" %>
+    </div>
+    <div class="col-lg-6 d-flex justify-content-center">
+      <div>
+        <%= simple_form_for(SearchForm.new, url: cocktails_path, method: :get) do |f| %>
+        <%= f.input :search_term, label: false, :input_html => { :class => 'search_field' }, placeholder: 'Search', hint: 'Search cocktails or ingredients' %>
+        <%= f.submit :style => "display: none;" %>
+        <% end %>
+        <%= link_to image_tag("create.png"), new_cocktail_path  %>
+      <div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

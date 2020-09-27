@@ -1,0 +1,28 @@
+.cock-font {
+  color: #FF25D7;
+  margin-top: 100px
+}
+
+.search_field_new {
+  background-color: #505050;
+  color: #101010;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none;
+}
+.search_field_new::placeholder {
+  color: #161616;
+  opacity: 1;
+}
+
+.search_field_new:focus {
+  background-color: #555555;
+  color: #161616;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none !important;
+  box-shadow: none;
+}
+

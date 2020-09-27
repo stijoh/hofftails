@@ -1,0 +1,21 @@
+<%= render 'shared/navbar' %>
+<div class="container cock-font" style="width: 400px">
+<%= simple_form_for @cocktail do |f| %>
+    <p>Name:</p>
+    <%= f.input :name, label: false, :input_html => { :class => 'search_field_new' } %>
+    <p>Photo:</p>
+    <%= f.input :photo, as: :file, label: false %>
+  <p>Ingredients and amounts:</p>
+  <div>
+    <%= f.fields_for :doses do |dose| %>
+      <%= render 'dose_fields', f: dose %>
+    <% end %>
+    <div>
+      <%= link_to_add_association 'Add amount', f, :doses %>
+    </div>
+  </div>
+  <div class="mt-3">
+  <%= f.submit class: 'btn btn-primary search_button' %>
+  </div>
+<% end %>
+</div>

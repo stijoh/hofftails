@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <p>Amount:</p>
+  <%= f.input :description, label: false, :input_html => { :class => 'search_field_new' }  %>
+  <p>Ingredient:</p>
+  <%= f.association :ingredient, label: false, :input_html => { :class => 'search_field_new' } %>
+  <%= link_to_remove_association 'Remove amount', f %>
+  <br>
+</div>

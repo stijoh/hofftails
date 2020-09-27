@@ -1,0 +1,25 @@
+<%= render 'shared/navbar' %>
+<div class="container marg">
+  <div class="row">
+    <div class="col-12"><h2><%= @cocktail.name %></h2></div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-4 col-lg-3 show-cocktail" style="width: 300px">
+      <%= cl_image_tag @cocktail.photo.key, width: 230, height: 160, crop: :fill %>
+    </div>
+    <div class="col-12 col-md-4 col-lg-3 show-cocktail">
+      <ul class="show-cocktail">
+        <% @cocktail.doses.each do |dose| %>
+        <li class="show-cocktail"><%= dose.description %> <%= dose.ingredient.name %></li>
+        <% end %>
+        </ul>
+      <br>
+      <% if current_user == @cocktail.user || current_user.admin? %>
+      <%= render 'form' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+

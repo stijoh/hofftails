@@ -1,0 +1,12 @@
+
+<%= simple_form_for @cocktail do |f| %>
+  <div>
+    <%= f.fields_for :doses do |dose| %>
+      <%= render 'dose_fields', f: dose %>
+    <% end %>
+    <div>
+      <%= link_to_add_association 'Add Ingredient', f, :doses %>
+    </div>
+  </div>
+  <%= f.button :submit, 'Update Recipe', class: 'btn btn-outline-primary'%>
+<% end %>

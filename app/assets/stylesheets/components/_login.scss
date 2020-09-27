@@ -1,0 +1,25 @@
+
+.form_field_login {
+  background-color: #505050;
+  color: #161616;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none;
+}
+.form_field_login::placeholder {
+  color: #161616;
+  opacity: 1;
+}
+
+.form_field_login:focus {
+  background-color: #555555;
+  color: #161616;
+  width: 300px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border: none !important;
+  box-shadow: none;
+}
+
+
