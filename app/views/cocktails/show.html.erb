@@ -5,7 +5,12 @@
   </div>
   <div class="row">
     <div class="col-12 col-md-4 col-lg-3 show-cocktail" style="width: 300px">
-      <%= cl_image_tag @cocktail.photo.key, width: 230, height: 160, crop: :fill %>
+      <% if @cocktail.photo.attached? %>
+      <% image_url = cloudinary_url(@cocktail.photo.key) %>
+      <% else %>
+      <% image_url = 'https://source.unsplash.com/collection/962396/1600x900/?' + @cocktail.name.gsub(" ", "%30") %>
+      <% end %>
+      <%= cl_image_tag image_url, width: 230, height: 160, crop: :fill %>
     </div>
     <div class="col-12 col-md-4 col-lg-3 show-cocktail">
       <ul class="show-cocktail">

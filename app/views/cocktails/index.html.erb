@@ -2,8 +2,13 @@
 <div class="container marg">
   <div class="row  justify-space-between">
     <% @cocktails.each do |cocktail| %>
+      <% if cocktail.photo.attached? %>
+      <% image_url = cloudinary_url(cocktail.photo.key) %>
+      <% else %>
+      <% image_url = 'https://source.unsplash.com/collection/962396/1600x900' + cocktail.name.gsub(" ", "%30") %>
+      <% end %>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex justify-content-center">
-    <div class="card-category align-items-end mt-3" style="background-image: linear-gradient(rgba(128,128,128,0.2), rgba(0,0,0,0.3)), url(<%= cloudinary_url(cocktail.photo.key) %> )">
+    <div class="card-category align-items-end mt-3" style="background-image: linear-gradient(rgba(128,128,128,0.2), rgba(0,0,0,0.3)), url(<%= cloudinary_url( image_url ) %> )">
       <%= link_to "", cocktail_path(cocktail), class: "stretched-link" %>
       <%= cocktail.name %>
     </div>
