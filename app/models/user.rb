@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :cocktails
 
-  enum role: %i[user, admin]
+  enum role: %i[user admin]
   after_initialize :set_default_role, if: :new_record?
 
   def set_default_role
